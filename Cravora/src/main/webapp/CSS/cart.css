@@ -1,0 +1,156 @@
+:root{--wine:#260212;--burgundy:#4f0423;--red:#e10600;--blush:#ffc7c6;--black:#000;--white:#fff;--border:rgba(255,199,198,.25);--muted:rgba(255,199,198,.72);--green:#5d9c46}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--wine);color:var(--white);font-family:Inter,sans-serif;line-height:1.5}
+button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.container{width:min(calc(100% - 40px),1380px);margin:0 auto}
+/* SECURE CHECKOUT HEADER */
+.checkout-header{position:sticky;top:0;z-index:1000;background:var(--black);border-bottom:1px solid rgba(255,255,255,.12)}
+.checkout-header-inner{width:min(calc(100% - 40px),1380px);min-height:82px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.checkout-brand{display:inline-flex;align-items:center;gap:24px;min-width:0}
+.checkout-logo{font-family:"Barlow Condensed",sans-serif;font-size:42px;line-height:.8;font-weight:800;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;color:var(--white)}
+.checkout-logo span{color:var(--red)}
+.checkout-divider{width:1px;height:34px;background:rgba(255,255,255,.2)}
+.secure-checkout{display:flex;align-items:center;gap:9px;color:var(--white);font:700 21px/1 "Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+.secure-icon{width:25px;height:25px;border:1px solid var(--blush);border-radius:7px;display:grid;place-items:center;color:var(--blush);font:700 14px/1 Inter,sans-serif}
+.checkout-actions{display:flex;align-items:center;gap:12px}
+.checkout-action{height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 17px;border:1px solid rgba(255,255,255,.25);border-radius:12px;background:transparent;color:var(--white);font:700 17px/1 "Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.02em;transition:.2s}
+.checkout-action:hover{background:var(--white);color:var(--black);border-color:var(--white)}
+.checkout-action-icon{width:20px;height:20px;display:grid;place-items:center;font-family:Inter,sans-serif;font-size:14px}
+.profile-action{width:44px;padding:0;border-radius:50%}.profile-svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:800px){.checkout-header-inner{min-height:72px}.checkout-logo{font-size:36px}.checkout-divider{display:none}.checkout-brand{gap:12px}.secure-checkout{font-size:18px}.checkout-action.help-action{padding:0 12px}.profile-action{width:42px}}
+@media(max-width:600px){.checkout-header-inner{width:calc(100% - 28px);gap:12px}.checkout-logo{font-size:31px}.secure-checkout{font-size:16px}.secure-icon{width:21px;height:21px;font-size:12px}.checkout-actions{gap:7px}.checkout-action.help-action{width:42px;padding:0;font-size:0}.checkout-action.help-action .checkout-action-icon{font-size:16px}.profile-action{width:40px;height:40px}}
+/* PAGE */
+.cart-page{padding:58px 0 100px}
+.page-kicker{color:var(--red);font:800 18px/1 "Barlow Condensed",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+.page-title{margin-top:8px;font:900 clamp(58px,8vw,100px)/.78 "Barlow Condensed",sans-serif;text-transform:uppercase}
+.page-title span{color:var(--red)}
+.cart-layout{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:34px;align-items:start;margin-top:44px}
+.panel{background:var(--burgundy);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.restaurant-card{display:flex;align-items:center;gap:18px;padding:22px;border-bottom:1px solid var(--border)}
+.restaurant-thumb{width:78px;height:78px;border-radius:10px;object-fit:cover;flex:0 0 78px}
+.restaurant-name{font:800 28px/.95 "Barlow Condensed",sans-serif;text-transform:uppercase}
+.restaurant-meta{margin-top:6px;color:var(--muted);font-size:13px}
+.restaurant-change{margin-left:auto;border:1px solid var(--border);background:transparent;color:var(--white);padding:9px 13px;border-radius:12px;font:700 15px "Barlow Condensed",sans-serif;text-transform:uppercase}
+.restaurant-change:hover{border-color:var(--red);color:var(--red)}
+.cart-list{padding:8px 22px}
+.cart-row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:16px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(255,199,198,.13)}
+.item-thumb{width:64px;height:64px;border-radius:8px;object-fit:cover}
+.item-name{font:800 23px/1 "Barlow Condensed",sans-serif;text-transform:uppercase}
+.item-price{margin-top:5px;color:var(--muted);font-size:13px}
+.item-total{margin-top:4px;color:var(--white);font-size:14px;font-weight:700}
+.qty{display:flex;align-items:center;border:1px solid var(--red);border-radius:12px;overflow:hidden;background:var(--red)}
+.qty button{width:32px;height:34px;border:0;background:var(--red);color:var(--white);font-size:20px;font-weight:700}
+.qty span{min-width:32px;text-align:center;color:var(--white);font-size:14px;font-weight:700}
+.cart-note{padding:18px 22px;color:var(--muted);font-size:13px}
+.empty{padding:80px 30px;text-align:center}
+.empty-icon{font-size:48px;margin-bottom:14px}
+.empty h2{font:900 44px/.9 "Barlow Condensed",sans-serif;text-transform:uppercase}
+.empty p{margin:12px auto 22px;max-width:430px;color:var(--muted);font-size:14px}
+.primary,.secondary{width:100%;padding:14px 18px;border-radius:14px;font:800 20px "Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.03em}
+.primary{border:1px solid var(--red);background:var(--red);color:var(--white)}
+.primary:hover{background:var(--white);color:var(--red)}
+.secondary{border:1px solid var(--border);background:transparent;color:var(--white)}
+.secondary:hover{border-color:var(--red);color:var(--red)}
+.right-stack{display:flex;flex-direction:column;gap:14px;position:sticky;top:96px}
+.card-title{padding:18px 20px;border-bottom:1px solid var(--border);font:800 22px/1 "Barlow Condensed",sans-serif;text-transform:uppercase}
+.address-body{padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
+.address-icon{width:42px;height:42px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-size:19px;flex:0 0 42px}
+.address-label{font-size:12px;color:var(--blush);text-transform:uppercase;font-weight:700}
+.address-text{margin-top:3px;font-size:14px;font-weight:600}
+.address-change{margin-left:auto;border:0;background:transparent;color:var(--red);font:800 15px "Barlow Condensed",sans-serif;text-transform:uppercase}
+.offer-body{padding:18px 20px}
+.offer-line{display:flex;align-items:center;gap:12px}
+.offer-icon{width:40px;height:40px;border:1px solid var(--border);border-radius:8px;display:grid;place-items:center;color:var(--red);font-weight:800}
+.offer-text strong{display:block;font:800 19px/1 "Barlow Condensed",sans-serif;text-transform:uppercase}
+.offer-text span{font-size:12px;color:var(--muted)}
+.apply-btn{margin-left:auto;border:1px solid var(--red);background:transparent;color:var(--red);padding:8px 13px;border-radius:10px;font:800 15px "Barlow Condensed",sans-serif;text-transform:uppercase}
+.apply-btn:hover{background:var(--red);color:var(--white)}
+.tip-body{padding:18px 20px}
+.tip-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tip-btn{padding:10px 6px;border:1px solid var(--border);background:transparent;color:var(--white);border-radius:10px;font:700 15px "Barlow Condensed",sans-serif}
+.tip-btn:hover,.tip-btn.active{border-color:var(--red);background:var(--red)}
+.bill-body{padding:16px 20px 20px}
+.bill-row{display:flex;justify-content:space-between;gap:15px;padding:7px 0;color:var(--muted);font-size:13px}
+.bill-row strong{color:var(--white)}
+.bill-row.discount strong,.bill-row.discount span{color:#ff8d89}
+.bill-divider{height:1px;background:var(--border);margin:8px 0}
+.pay-row{display:flex;justify-content:space-between;align-items:center;padding-top:10px}
+.pay-label{font:800 23px "Barlow Condensed",sans-serif;text-transform:uppercase}
+.pay-total{font:900 28px "Barlow Condensed",sans-serif}
+.place-wrap{padding:0 20px 20px}
+.place-btn{width:100%;padding:16px;border:1px solid var(--red);border-radius:14px;background:var(--red);color:var(--white);font:900 23px "Barlow Condensed",sans-serif;text-transform:uppercase}
+.place-btn:hover{background:var(--white);color:var(--red)}
+.small-help{padding:0 20px 20px;color:var(--muted);font-size:11px;text-align:center}
+/* MODALS */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:20px;z-index:3000}
+.overlay.show{display:flex}
+.modal{width:min(520px,100%);background:var(--burgundy);border:1px solid var(--border);border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.45);overflow:hidden}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:20px;border-bottom:1px solid var(--border)}
+.modal-head h3{font:900 30px/.9 "Barlow Condensed",sans-serif;text-transform:uppercase}
+.close{width:38px;height:38px;border:1px solid var(--border);border-radius:50%;background:transparent;color:var(--white);font-size:20px}
+.close:hover{background:var(--red)}
+.modal-body{padding:20px}
+.coupon{border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.coupon-code{font:800 18px "Barlow Condensed",sans-serif;color:var(--white)}
+.coupon-desc{font-size:11px;color:var(--muted)}
+.coupon button{margin-left:auto;border:1px solid var(--red);background:transparent;color:var(--red);padding:7px 10px;border-radius:9px;font:800 14px "Barlow Condensed",sans-serif}
+.coupon button:hover{background:var(--red);color:var(--white)}
+.address-option{width:100%;text-align:left;border:1px solid var(--border);background:transparent;color:var(--white);border-radius:12px;padding:14px;margin-bottom:10px}
+.address-option:hover,.address-option.selected{border-color:var(--red);background:rgba(225,6,0,.12)}
+.address-option strong{font:800 18px "Barlow Condensed",sans-serif;text-transform:uppercase}.address-option span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.address-form{display:grid;gap:12px;margin-bottom:14px}
+.address-form label{font:700 15px "Barlow Condensed",sans-serif;text-transform:uppercase;color:var(--blush)}
+.address-form input,.address-form textarea{width:100%;border:1px solid var(--border);border-radius:10px;background:rgba(0,0,0,.18);color:var(--white);padding:11px 12px;outline:none;font:500 13px Inter,sans-serif}
+.address-form input:focus,.address-form textarea:focus{border-color:var(--red)}
+.address-form textarea{min-height:88px;resize:vertical}
+.address-form input::placeholder,.address-form textarea::placeholder{color:rgba(255,199,198,.48)}
+
+.payment-option{display:flex;align-items:center;gap:10px;padding:13px;border:1px solid var(--border);border-radius:11px;margin-bottom:9px}
+.payment-option input{accent-color:var(--red)}
+.payment-option span{font-weight:600;font-size:14px}
+.modal-actions{display:flex;gap:10px;margin-top:14px}
+.modal-actions button{flex:1}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,30px);opacity:0;pointer-events:none;z-index:5000;background:var(--black);color:var(--white);border:1px solid var(--border);padding:12px 18px;border-radius:12px;font-size:13px;transition:.25s}
+.toast.show{transform:translate(-50%,0);opacity:1}
+/* FOOTER - same Cravora design */
+.site-footer-menu{background:var(--burgundy);border-top:0;padding:78px 0 50px;margin-top:20px}
+.site-footer-menu>.container{width:min(calc(100% - 80px),1620px);margin:0 auto}
+.footer-top-menu{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:58px;flex-wrap:wrap}
+.footer-logo-menu{font:800 62px/.82 "Barlow Condensed",sans-serif;letter-spacing:.015em;text-transform:uppercase;color:var(--white)}.footer-logo-menu span{color:var(--red)}
+.footer-selects-menu{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.footer-select-menu{min-height:54px;border:1px solid rgba(255,255,255,.28);background:transparent;color:var(--white);border-radius:20px;padding:10px 20px;font:700 17px "Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.025em}
+.footer-grid-menu{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr 1fr;gap:36px 48px;align-items:start}
+.footer-col-menu h4{font:600 19px/1.2 Inter,sans-serif;margin-bottom:24px;color:var(--blush)}
+.footer-col-menu>button:not(.social-btn-menu):not(.footer-store-menu){display:inline-flex;align-items:center;width:auto;margin:0 4px 6px 0;padding:2px 3px;background:var(--white);border:0;color:#111;text-align:left;font:500 16px/1.25 "Barlow Condensed",sans-serif;cursor:pointer;transition:color .2s ease,background .2s ease}
+.footer-col-menu>button:not(.social-btn-menu):not(.footer-store-menu):hover{background:var(--blush);color:var(--red)}
+.social-row-menu{display:flex!important;flex-direction:row!important;align-items:center!important;gap:12px!important;width:100%;margin:0 0 28px!important;flex-wrap:nowrap!important}
+.social-btn-menu{width:50px!important;height:50px!important;min-width:50px!important;flex:0 0 50px!important;border:0;border-radius:9px;background:#3a0318;color:var(--white);display:grid!important;place-items:center;font:700 16px "Barlow Condensed",sans-serif}
+.social-btn-menu:hover{background:var(--wine)}
+.footer-store-menu{display:flex;align-items:center;justify-content:flex-start;width:100%;min-height:56px;margin:0 0 12px;padding:12px 18px;border:1px solid rgba(255,255,255,.32);border-radius:18px;background:var(--black);color:var(--white);font:800 17px "Barlow Condensed",sans-serif;text-transform:uppercase}
+.footer-store-menu:hover{border-color:var(--red)}
+.footer-legal-menu{margin-top:58px;padding-top:29px;border-top:1px solid rgba(255,255,255,.12);color:var(--blush);font-size:15px;line-height:1.6}
+@media(max-width:1100px){.nav-inner{grid-template-columns:160px minmax(210px,280px) minmax(240px,1fr) auto auto}.cart-layout{grid-template-columns:1fr 360px}.footer-grid-menu{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){.navbar{position:relative}.nav-inner{grid-template-columns:1fr 1fr;padding:14px 0}.brand{grid-column:1/-1}.location-wrapper,.nav-search{width:100%;grid-column:1/-1}.nav-action{width:100%}.cart-layout{grid-template-columns:1fr}.right-stack{position:static}.footer-top-menu{align-items:flex-start;flex-direction:column}.footer-grid-menu{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.container,.nav-inner{width:calc(100% - 28px)}.cart-page{padding-top:38px}.restaurant-card{align-items:flex-start}.restaurant-change{margin-left:0}.cart-row{grid-template-columns:52px minmax(0,1fr);gap:12px}.item-thumb{width:52px;height:52px}.qty{grid-column:2;justify-self:start}.footer-grid-menu{grid-template-columns:1fr}.footer-logo-menu{font-size:52px}.site-footer-menu>.container{width:calc(100% - 40px)}.footer-legal-menu{font-size:13px}}
+
+/* JSP cart integration: retain the reference layout while accommodating server-side controls. */
+.cart-row{grid-template-columns:64px minmax(0,1fr) auto auto}
+.qty form{display:inline-flex;margin:0}
+.qty button:disabled{opacity:.45;cursor:not-allowed}
+.remove-section form{margin:0}
+.remove-button{border:1px solid var(--border);background:transparent;color:var(--muted);padding:8px 10px;border-radius:9px;font:700 14px "Barlow Condensed",sans-serif;text-transform:uppercase;transition:all .2s ease}
+.remove-button:hover{border-color:var(--red);background:var(--red);color:var(--white)}
+.cart-clear-wrap{padding:0 22px 20px}
+.cart-clear-wrap form{margin:0}
+.restaurant-thumb{width:78px;height:78px;border-radius:10px;object-fit:cover;flex:0 0 78px}
+.cart-row{transition:background .2s ease,transform .2s ease}
+.cart-row:hover{background:rgba(255,255,255,.025)}
+.panel{transition:border-color .2s ease,box-shadow .2s ease}
+.panel:hover{border-color:rgba(255,199,198,.38)}
+@media(max-width:900px){.cart-row{grid-template-columns:58px minmax(0,1fr) auto;gap:12px}.remove-section{grid-column:2 / -1;justify-self:end}.item-thumb{width:58px;height:58px}}
+@media(max-width:600px){.cart-row{grid-template-columns:52px minmax(0,1fr);gap:12px}.item-thumb{width:52px;height:52px}.qty{grid-column:2;justify-self:start}.remove-section{grid-column:2;justify-self:start}.restaurant-thumb{width:58px;height:58px;flex-basis:58px}.restaurant-card{flex-wrap:wrap}}
+.bill-count{float:right;color:var(--muted);font:600 13px Inter,sans-serif;text-transform:none;letter-spacing:0}
+.tip-note,.modal-message{margin-top:12px;color:var(--muted);font-size:12px;line-height:1.6}
+.restaurant-thumb-placeholder{display:grid;place-items:center;background:rgba(255,255,255,.08);font-size:27px}
+.place-btn:disabled{opacity:.45;cursor:not-allowed;background:#555;border-color:#555}
